@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/report/CVPR.css">
+    <script src="../static/js/CVPR.js"></script>
     <!-- <link rel=stylesheet href="{ url 'static', filename='CVPR.css' }" /> -->
     <title>CVPR Rerport</title>
 <style>
@@ -389,7 +390,30 @@ width: fit-content !important;
                 </div>
               </div>
         </div>
+<script>
+  function generatePDF() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/api/generate_pdf/', true);
+    xhr.responseType = 'blob';
 
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            var blob = new Blob([xhr.response], { type: 'application/pdf' });
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            console.log('Date:', link.href)
+            link.download = 'CVPR.pdf'; // Change the file name as needed
+            link.click();
+            var pdfURL = window.URL.createObjectURL(blob);
+            window.open(pdfURL, '_blank');
+
+            window.close();
+        }
+    };
+    xhr.send();
+}
+window.onload=generatePDF;
+</script>
 <script src="../static/js/CVPR.js"></script>
 </body>
 </html>
