@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"> -->
+
+    <link rel="stylesheet" href="../static/css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../static/layout.css">
+    <!-- <link rel="stylesheet" href="../static/sidebar.css"> -->
+
+
+</head>
+
+<body>
+
+    <div class="body-content">
+        {% comment %} <hr/> {% endcomment %}
+    
+        <div class="reference">
+          {% block content %}
+          {% endblock %}
+            <footer>
+                <p>&copy; Lead Solutions Inc. 2023<img src="../static/img/Official LEAD Logo 23Nov12.ico" alt="Official LEAD Logo" width="50px" height="50px"></p>
+              
+            </footer>
+        </div>
+      
+    </div>
+  
+
+    <div class="wrapper">
+        <div class="section">
+            <div class="sidebar" id="sidebar">
+                <div class="profile">
+                  <a href="{% url 'home' %}">
+                    <img src="../static/img/Official LEAD Logo 23Nov12.png" alt="Official LEAD Logo" width="200" height="200"></a>
+     
+                  </div>
+                <ul>
+                    <li>
+                        <label class="active" onclick="toggleDropdown(event)">
+                          <span class="icon"> <i class="fas fa-home"></i></span>
+                         
+                          <span class="item">Cash Deposit</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <a href="{% url 'index' %}">
+                            <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                            <span class="item">Disbursement</span>
+                          </a>
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <!-- <a href="{% url 'modal' %}"> -->
+                          <span class="icon"><i class="fas fa-database"></i></span>
+                          <span class="item">Sales & Account Receivable</span>
+                          <!-- </a> -->
+                        </label>
+                      </li>
+
+                      <li>
+                        <label>
+                          <span class="icon"><i class="fas fa-database"></i></span>
+                          <span class="item">Purchased & Payable</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <span class="icon"><i class="fas fa-database"></i></span>
+                          <span class="item">General Journal</span>
+                        </label>
+                      </li>
+
+                      <li>
+                        <label>
+                          <span class="icon"><i class="fas fa-database"></i></span>
+                          <span class="item">Transaction Listing</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <span class="icon"><i class="fas fa-file-powerpoint"></i></span>
+                          <span class="item">Reports</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <a href = "{% url 'logout' %}">
+                          <span class="item" >Log Out</span> </a>
+                        </label>
+                      </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+   
+

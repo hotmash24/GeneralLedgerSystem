@@ -1,0 +1,165 @@
+
+body{
+
+  background-color: rgba(12, 12, 12, 0.879);
+}
+
+
+.login-form img {
+
+  border: 1px solid transparent;
+  border-radius: 50%;
+  text-align: center;
+  animation: borderGlow 2s infinite;
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0  0 20px rgba(58, 88, 158, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 68, 255, 0.7);
+  }
+}
+
+.login-container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .login-form {
+    max-width: 350px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #a2b2f6;
+  }
+
+
+  .login-form h1 {
+    text-align: center;
+  }
+
+  .login-form .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+
+  .login-form .form-group input[type="text"],
+   .login-form .form-group input[type="password"]{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    background-image: linear-gradient(to right, #5f78db 100%, #898989 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    padding-left: 32px;
+  }
+
+  
+  .login-form .form-group input {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    box-sizing: content-box;
+}
+.login-form .form-group select {
+  width: 90% !important;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  box-sizing: content-box;
+}
+
+
+  .login-form .form-group input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4c57af;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+
+  .login-form .form-group input[type="submit"]:hover {
+    background-color: #bff5c2;
+    cursor: pointer;
+  }
+
+  .login-form .error {
+    color: red;
+    margin-top: 10px;
+  }
+
+.form-group i{
+position: relative;
+float: right;
+right:18px;
+bottom: 25px;
+font-size: 13px;
+cursor: pointer;
+}
+
+
+i {
+  cursor: pointer;
+}
+/* Adjust the lock icon's font size */
+i.fa-lock,i.fa-user {
+  font-size: 20px; /* You can change the value to the desired size in pixels */
+}
+/* Move the lock icon to the right side of the input */
+.form-group {
+  position: relative;
+}
+.fa-lock {
+  color: rgb(47, 47, 189);
+  position: absolute;
+  left: -195px;
+  top: 39px; /* You can adjust this value to control the distance from the right side */
+  transform: translateY(-50%);
+}
+.fa-user {
+  color: rgb(47, 47, 189);
+  position: absolute;
+  top: 50%;
+  left: -195px;
+  top: 39px; /* You can adjust this value to control the distance from the right side */
+  transform: translateY(-50%);
+}
+input[type="submit"]{
+  margin-top: 20px;
+ width: 98%;
+ padding: 5px;
+ border: 1px solid #ccc;
+ border-radius: 10px;
+ border-radius: 3px;
+ color: #ccc;
+ font-weight: bold;
+ font-size: medium;
+ background-color: blue;
+ outline: none;
+}
+
+
+input[type="submit"]:hover{
+background-color: #45a049;
+color: black;
+ }
+ 
+

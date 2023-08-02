@@ -1,0 +1,549 @@
+{% extends "layout.html" %}
+{% block title %}
+Disbursement
+{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/Disdursement.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../static/css/tab.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- {% load static %} -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/disbursement.css' %}"/> -->
+    <title>Cash Disbursement</title>
+</head>
+<body>
+ <h4>Cash Disbursement</h4>
+<div class="container">
+
+    <div class="tab-container">
+        <div class="tab" onclick="changeTab(0)">Transaction History</div>
+        <div class="tab" onclick="changeTab(1)">Cash Disbursement</div>
+        <div class="tab-content">
+            <div id="tab1" class="content show">
+                <div id="buttonTab1" class="button-content">
+                    <button id="filterButton" type="button" value="filter"><i class="fas fa-filter"></i>Filter</button>
+                    <!-- <button id="filterButton" value="filter"><i class="fas fa-filter"></i>Filter</button> -->
+                    <button id="findButton" value="Find"><i class="fas fa-search"></i> Find</button>
+                    <button id="newButton" value="New"><i class="fas fa-plus"></i> New</button>
+                    <button id="editButton" value="Edit"><i class="fas fa-edit"></i> Edit</button>
+                </div>
+                <!-- <hr> -->
+             <form class="list-container" action="GET">
+                <div class="scrollable-table">
+                        <table class="table-list">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Date</th>
+                                    <th>Ref No.</th>
+                                    <th> Check No. </th>
+                                    <th>Check Date</th>
+                                    <th style="width:265px;"> Payee/Supplier</th>
+                                    <th> TransType </th>
+                                    <th> Amount</th>
+                                    <th> Doc Count</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for record in cv_list_records %}
+                                    <tr>
+                                        <td>{{ record.ul_code }}</td>
+                                        <td style="text-align: start;">{{ record.date_trans }}</td>
+                                        <td style="text-align: start;">{{ record.doc_type }}#{{ record.cv_no|floatformat }}</td>
+                                        <td style="text-align: start;">{{ record.check_no|floatformat }}</td>
+                                        <td style="text-align: start;">{{ record.check_date }}</td>
+                                        <td style="text-align: start; width:265px;">{{ record.payee }}</td>
+                                        <td>{{ record.transtype }}</td>
+                                        <td style="text-align: end;">{{ record.check_amt|floatformat:"2g" }}</td>
+                                        <td>{{ record.ul_code }}</td>
+                                        <td>{{ record.active }}</td>
+                                                <td>
+                                                    <div class="actions">
+                                                            <button id="edit"><i class="fas fa-edit"></i></button>
+                                                            <button id="details"><i class="fas fa-info-circle"></i></button>
+                                                            <button id="delete"><i class="fas fa-trash-alt"></i></button>
+                                                    </div>
+                                            
+                                                </td>
+                                    </tr>
+                                    {% endfor %}
+                            </tbody>
+                        </table>
+                </div>
+            </form>
+            </div>
+            <div id="tab2" class="content" tabindex="0">
+             
+                <div class="button-content">
+                    <!-- <labe id="status"> Status: <label id="statusid">Submitted</label></labe> -->
+                    <button id="findButton" value="Find"><i class="fas fa-search"></i> Find</button>
+                    <button id="AddNewEntry" value="AddNewEntry"><i class="fas fa-plus"></i> New</button>
+                    <button id="SaveData" value="Edit"><i class="fas fa-Save"></i> Save</button>
+                    <button id="editButton" value="Edit"><i class="fas fa-edit"></i> Edit</button>
+                    <button id="printButton" value="print"><i class="fas fa-print"></i> Print</button>
+                    <button id="CancelButton" value="Cancel"><i class="fas fa-times"></i> Cancel</button>
+                    <button id="ReviewButton" value="Review"><i class="fas fa-check"></i> Review</button>
+                    <button id="ApproveButton" value="Approve"><i class="fas fa-thumbs-up"></i> Approve</button>
+                    <button id="cancelButton" value="cancel"><i class="fas fa-times"></i> Cancel</button>
+                    <button id="closeButton" value="close"><i class="fas fa-window-close"></i> Close</button>
+                </div>
+        
+                <form class="transaction-container" action="POST" >
+                    <!-- <div class="container-content"> -->
+
+
+                                <div class="transactiondetails-content">
+                                <div class="paysup-content">
+                                    <div class="Payee-content">
+                                        <label id="payee">Payor: </label>
+                                        <input type="text" id="payeeInput" placeholder="Enter Payee"  readonly autocomplete="off" />
+                                        <div id="payeeResultsContainer">
+                                            <ul id="payeeResults"></ul>
+                                          </div>
+                                      
+
+                                          <div class="addressAmount-container">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="address">Address:</label> <input id="Address" type="text" name="Address" placeholder="Address" style="text-align: start;" readonly>
+                                                </div>
+                                            </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                    <label for="Amount">Amt. Check:</label> <input id="Amount" type="text" name="Amount" placeholder="0.00" style="text-align: end;" readonly>
+                                                </div>
+                                            </div>
+                                          </div>
+
+                                        <label for="draweeInput">Drawee Bank: </label>
+                                        <input type="text" id="draweeInput" placeholder="Enter Drawee Bank" readonly autocomplete="off"/>
+                                        <div id="draweeResultsContainer">
+                                            <ul id="draweeResults"></ul>
+                                          </div>
+                                        <!-- <select id="DraweeBank" name="Drawee" readonly>
+                                            <option id="draweeList"></option>
+                        
+                                        </select> -->
+                                
+
+                                        <div class="Payment-content row">
+                                            <div class="col-md-4">
+                                                <label>Check Date:</label> <input id="Dateidcheck" type="date" name="Dateidcheck" readonly>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Check No.: </label><input id="checkNo" type="text" name="checkNo" placeholder="Check No." readonly autocomplete="off">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Contact:</label> <input id="Contact" type="text" name="Contact" placeholder="12345" style="text-align: center;" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="details-content row">
+                                        <div class="col-md-4">
+                                          <div class="form-group">
+                                            <label>Document Type:</label>
+                                            <select id="doctype" name="prepared" readonly>
+                                              <option value="Cash in Bank">CV</option>
+                                              <option value="Petty Cash Fund">PCV</option>
+                                              <option value="Cash in Bank">CV-PDC</option>
+                                              <option value="Revolving Fund">RFV</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="form-group">
+                                            <label for="docref">Check Voucher No.</label>
+                                            <input id="docref" type="text" name="docref" placeholder="Doc No." readonly>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="form-group">
+                                            <label for="Date">Voucher Date:</label>
+                                            <input id="Date" type="date" name="Date" placeholder="Date" readonly>
+                                          </div>
+                                        </div>
+                                      </div>
+
+
+                                    <div class="remarks">
+                                          <label>Remarks:</label>
+                                    <textarea id="remarks" type="text" name="remarks" readonly></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                                <div id="acctContainer" class="accountEntry-container">
+                                <h5>ACCOUNT ENTRY</h5>
+                                      <div class="accountEntry-content row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>UL</label>
+
+                                                <input id="ul" type="text" name="ul" readonly value="{{ ul_code_login }}" style="text-align:center">
+                                            </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>ACCOUNT CODE</label>
+                                            <input id="accCode" type="text" name="accCode" readonly autocomplete="off">
+
+                                            <div id="AccCodeResultsContainer">
+                                                <ul id="AccCodeResults"></ul>
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>ACCOUNT TITLE</label>
+                                            <input id="accTitle" type="text" name="accTitle" readonly autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>SUBSIDIARY ACCOUNT</label>
+                                            <input id="slAcc" type="text" name="slAcc" readonly autocomplete="off">
+                                            <div id="slAcctResultsContainer">
+                                                <ul id="slAccResults"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>DEBIT</label>
+                                            <input id="debit" type="text" name="debit"  value="0.00" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>CREDIT</label>
+                                            <input id="credit" type="text" name="credit" placeholder="0.00" readonly autocomplete="off">
+                                        </div>
+                                    </div>
+
+                                  </div>
+                                </div> 
+                                    <h5>ACCOUNT ENTRY DETAILS</h5>
+                                    <div class="transaction-content" >
+                                        <table id="AcctEntry" class="table" >
+                                            <thead>
+                                                <tr>
+                                                    <th> UL</th>
+                                                    <th>Account Code</th>
+                                                    <th> Account Title</th>
+                                                    <th> Subsidiary Account</th>
+                                                    <th> Debit</th>
+                                                    <th> Credit</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="acctEntryBody">
+                                          <tr>
+                                          </tr>
+                                   
+                                            </tbody>
+                                           
+                                        </table>
+                                    </div>
+                                    <div class="admin-container">
+                                        <div class="dc-content">
+                                            <label>DEBIT:</label> <input id="debittotal" type="text" name="debit" placeholder="0.00" readonly>
+                                            <label>CREDIT: </label><input id="credittotal" type="text" name="credit" placeholder="0.00" readonly>
+                                            <label>DIFF:</label> <input id="diff" type="text" name="diff" placeholder="0.00" readonly>
+                                        </div>
+                                        <!-- <hr> -->
+                             
+                                            <div class="admin-content row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="prepared">Prepared By:</label>
+                                                        <select id="prepared" name="prepared" readonly>
+                                                            {% if user.is_authenticated %}
+                                                            <option value="user">{{ user.username }}</option>
+                                                            {% endif %}
+                                                          
+                                                            </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="reviewed">Reviewed By:</label>
+                                                        <select id="reviewed" name="reviewed" readonly>
+                                                        <option value="person1">Person 1</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">      
+                                                        <label for="approved">Approved By:</label>
+                                                        <select id="approved" name="approved" readonly>
+                                                        <option value="person1">Person 1</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+
+
+            
+                                    <div class="document-content">
+                                        <div class="doc-button">
+                                            <label id="DeleteDocButton" class="btn" value="DeleteDoc"><i class="far fa-trash-alt"></i>Delete Document</label>
+                                            <label id="CancelDOcButton" class="btn" value="CancelDoc"><i class="far fa-times-circle"></i>Cancel</label>
+                                                <label for="pdfInput" class="btn">  <i class="far fa-file-pdf"></i>Upload PDF</label>
+                                                <input id="pdfInput" style="visibility:hidden;" type="file" accept=".pdf">
+                                     
+                
+                                                <label for="imgfiles" class="btn"> <i class="far fa-image"></i>Upload Image</label>
+                                                <input id="imgfiles" style="visibility:hidden;" type="file" accept="image/*">
+                                       
+                   
+                                        </div>
+                
+                                         <div class="file-content">
+                                            <div id="imgPreviewContainer">
+                                                <img id="imgPreview" src="../static/img/tempImage.jpg" alt="Image Preview" />
+                                              </div>
+                                            <div id="pdfPreviewContainer">
+                                                <embed id="pdfPreview" src="../static/img/pdf.pdf" type="application/pdf"  width="100%" height="500px">
+                                              </div>
+                                        </div>
+                                        
+                                        <div class="count-content">
+                                            <label>Documentation for</label>
+                                            <table class="table">
+                                               
+                                                <thead class="thead">
+                                                   
+                                                    <tr>
+                                                        <th>Seq.</th>
+                                                        <th>Document Source</th>
+                                                        <th>Pages</th>
+                                                      
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>2</td>
+                                                            <td>3</td>
+                                          
+                                                        </tr>
+                                                </tbody>
+                                               
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                             
+                    <!-- </div> -->
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    
+</div>
+
+
+<div id="myModal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sales Invoice Transaction</h5>
+        </div>
+        <div class="modal-body">
+            <form id="searchForm" action="{% url 'search_view' %}">
+            <p>
+              <label class="search-icon">
+                <!-- <i class="fas fa-search"></i> -->
+                <br>
+                <input id="doc" type="text" name="SearchString" placeholder="Document No."  autocomplete="off" />
+              </label>
+            </p>
+            <p>
+              <label> From:<br>
+                <input id="from" type="Date" name="from" />
+              </label>
+            </p>
+            <p>
+              <label>To:<br>
+                <input id="to" type="Date" name="to" />
+              </label>
+            </p>
+            <div class="salesinvoice-button">
+                <button id="cancelBtn" type="button" class="close" data-dismiss="modal">  <i class="fas fa-times"></i>Close</button>
+                <button id="filter" value="Filter">
+                    <i class="fas fa-filter"></i> Filter 
+                </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<div id="mytranstype" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Select Transaction Type</h5>
+            </div>
+            <div class="modal-body">
+                <form id="TransTypeForm">
+                    <p>
+                        <label>Activity Type:<br>
+                            <select id="activityid" name="activityid" readonly>
+                                <option value="COFO">Cash Outflows from Operations</option>
+                                <option value="COFIA">Cash Outflows from Investing Activities</option>
+                                <option value="COFFA">Cash Outflows from Financing Activities</option>
+                            </select>
+                        </label>
+                    </p>
+
+                    <p>
+                        <label>Transaction Type:<br>
+                            <select id="transactionTypeID" name="transactionTypeID" readonly>
+                                <option selected disabled="true">++--------Select--------++</option>
+                                
+                            </select>
+                        </label>
+                    </p>
+                            <button id="cancelBtn1" type="button" class="close" data-dismiss="modal">
+                                <i class="fas fa-times"></i> Close
+                            </button>
+                            <button id="oktranstype" type="submit">
+                                <i class="fas fa-check-circle"></i>OK
+                            </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+        <form id="Confirm">
+        <h3>Confirmation</h3>
+        <p>Are you sure you want to Cancel the transaction?</p>
+        <div class="modal-buttons">
+            <button id="confirmButton" type="submit">  <i class="fas fa-check"></i>Confirm</button>
+            <button id="cancelMessage" type="button"><i class="fas fa-times"></i>Cancel</button>
+        </div>
+     
+        </div>
+    </form>
+    </div>
+</div>
+  
+
+
+<div id="AbortEncoding" class="modal">
+    <div class="modal-content">
+        <form id="Confirm">
+        <h3>Confirmation</h3>
+        <p>Do you want to abort encoding of this unfinished</p>
+        <p>Debit/Credit Account Entry?</p>
+        <div class="modal-buttons">
+            <button id="confirmAbort" type="button">  <i class="fas fa-check"></i>Confirm</button>
+            <button id="cancelAbort" type="button"><i class="fas fa-times"></i>Cancel</button>
+        </div>
+     
+        </div>
+    </form>
+    </div>
+</div>
+
+
+<div id="AddEntry" class="modal">
+    <div class="modal-content">
+        <form id="AddEntryId">
+        <h3>Confirmation</h3>
+        <p>Do you want to add Another Entry?..</p>
+        <div class="modal-buttons">
+            <button id="AddEntryYes" type = "button"> <i class="fas fa-check"></i>Yes</button>
+            <button id="AddEntryNo" type = "button"> <i class="fas fa-times"></i>No</button>
+        </div>
+     
+        </div>
+    </form>
+    </div>
+</div>
+
+
+
+
+<div id="ApplicationOfPayment" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Application of Payments</h5>
+        </div>
+        <div class="modal-body">
+            <form id="applicationofp" action="{% url 'search_view' %}">
+                <p>
+                    <label>Account Title:</label><br>
+                    <input id="Account_title" type="text" name="Account_title" placeholder="Account Title" autocomplete="off"/>
+                    <div id="acctTilteList"></div>
+                </p><br>
+                    <label> Date From:
+                    <input id="fromApp" type="Date" name="from" value="2000-01-01"/> </label>
+                    <label>Date To:<input id="toApp" type="Date" name="to" value="2023-12-12" /> </label>
+            <button id="GenerateButton" type="button" class="close" data-dismiss="modal">  <i class="fas fa-times"></i>Generate</button>
+            <form id="applicationForm">
+                <div class="ApplicationTable-content"> 
+                  <table id="applicationTable" style="width:100%" >
+                    <tr>
+                      <th style="width:150px">Reference No.</th>
+                      <th style="width:140px">Date</th>
+                      <th style="width:140px">Amount</th>
+                      <th>Application of Payment</th>
+                      <th style="width:40px;"><input type="checkbox" style="width:15px; height:15px;"></th>
+                    </tr>
+                  </table>
+                </div>
+              </form>
+              <div class="total-container">
+                    <label>Count: <input id="countid" type="text" name="count" value="0" readonly style="width:70px; text-align:center;height:25px "></label>
+                    <label>Total Amount: <input id="total1" type="text" name="total1" value="0.00" readonly style="width:100px; text-align:end ;height:25px" ></label>
+                    <label>Amount Apply: <input id="total2" type="text" name="total2" value="0.00" readonly style="width:100px; text-align:end ;height:25px" ></label>
+                    <button id="okf10" type="button" class="close" data-dismiss="modal">  <i class="fas fa-times"></i>OK</button>
+              <div class="total-container">
+           
+      
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="../static/js/tab.js"></script>
+<script src="../static/js/disbursement.js"></script>
+<script src="../static/js/imageUpload.js"></script>
+<script src="../static/js/signatories.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- <script src="../static/js/modal.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+</body>
+</html>
+
+{% endblock %} 
+
+
+

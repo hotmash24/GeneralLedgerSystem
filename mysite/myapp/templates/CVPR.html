@@ -1,0 +1,395 @@
+{% load AmountToWords %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/report/CVPR.css">
+    <link rel=stylesheet href="{ url 'static', filename='CVPR.css' }" />
+    <title>CVPR Rerport</title>
+<style>
+  * {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+  
+  
+  }
+  @page {
+    position: absolute;
+    margin: 1%; /* Set your desired margins here (e.g., 2cm, 1in, etc.) */
+  }
+
+  body{
+  background-size: cover;
+  /* padding: 1cm; */
+  }
+
+  label{
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+  }
+
+  input{
+    font-weight: bold;
+    font-size: 12px;
+    color: black;
+    border: none;
+    background-color: white;
+  }
+  .cvpr-container{
+    border-radius: 10px;
+    margin: 10px;
+    border: solid;
+    border-width: 2px;
+    height: fit-content;
+    width: 98%;
+  }
+
+.Head-content{
+    height: 120px;
+    display: flex;
+    border-bottom: 1px;
+    border-radius: 10px;
+}
+
+/* .Head-content label,input{
+border: none;
+background-color: white;
+
+} */
+
+
+.Head-content .col-md-3{
+border-right: 1px solid;
+border-bottom: 1px solid;
+border-width: 1px;
+width:80%;
+
+}
+
+.Head-content .col-md-8{
+
+    border-bottom: 1px solid;
+    border-width: 1px;
+    width:20%;
+    
+}
+
+.Head-content .col-md-3 label[for="payee"],label[for="payee1"]{
+position: relative;
+top: 100px;
+
+    
+}
+
+.Head-content .col-md-8 label{
+width: fit-content;
+font-weight: bold;
+font-size: 12px;
+}
+.Head-content  input{
+    width: 100px;
+    font-weight: bold;
+    font-size: 12px;
+}
+.details-content{
+    height: fit-content;
+}
+.details-content table{
+    width: 100%;
+}
+
+.details-content table th{
+    border: solid;
+    font-size: 12px;
+    border-width: 1px;
+    text-align: center;
+    margin: 0;
+}
+.details-content table tr td{
+font-size: 12px;
+}
+
+
+
+.Remarks-container{
+    height: 70px;
+    border: solid;
+     border-width: 1px;
+}
+.Remarks-content{
+
+    display: flex;
+    border-width: 1px;
+    height:10 ;
+}
+    
+.Remarks-content label[for="total"]{
+    display: flex;
+    justify-content: flex-end;
+
+} 
+.remto-content{
+    display: flex;
+
+}
+
+.Remarks-conten .remto-content .col-md-3{
+    border: none;
+
+}
+
+.Remarks-content .col-md-3{
+
+    border-width: 1px;
+    width:80%;
+    
+}
+    
+.Remarks-content .col-md-8{
+        border: 1px solid;
+        border-width: 1px;
+        width:10%;  
+}
+.Remarks-content .col-md-8 input{
+    font-size: 12px;
+    width: 100%;
+    white-space: pre-wrap;
+
+}
+
+
+.pesos-content{
+    width: 100%;
+  
+    padding: 5px;
+    border-width: 1px;
+}
+
+.pesos-content input{
+    width: fit-content;
+}
+
+
+.bank-content{
+
+    display: flex;
+}
+
+.bank-content label{
+width: fit-content;
+}
+
+
+.bank-content .col-md-4{
+    padding: 5px;
+    border: solid;
+    border-width: 1px;
+    width: 40%;
+}
+
+
+.bank-content .col-md-3{
+    padding: 5px;
+    border: solid;
+    border-width: 1px;
+    width: 20%;
+}
+
+.bank-content .col-md-3 input{
+  width: fit-content;
+}
+.admin-content{
+    display: flex;
+    height: 70px;
+}
+
+.admin-content input{
+width: fit-content !important;
+}
+
+
+.admin-content .col-md-3{
+    padding: 5px;
+    border: solid;
+    border-width: 1px;
+  width: 100%;
+}
+
+.admin-content .col-md-3 input{
+    position: relative;
+    top: 0px;
+    right: 0px;
+    width: 98%;
+
+}
+
+.container {
+    position: relative;
+    left: 700px;
+    /* Other styles for the container if needed */
+  }
+  
+  .vertical-line {
+    position: absolute;
+    top: 20px; /* Adjust the vertical position as needed */
+    left: 0;
+    width: 1px;
+    height: 100px; /* Adjust the height as needed */
+    background-color: black; /* Change the color as needed */
+    z-index: 1; /* Set a higher z-index value to bring it to the front */
+  }
+  
+</style>
+</head>
+<body>
+    <div class="cvpr-container">
+        <div class="Head-content">
+            <div class="col-md-3">
+                <div class="form-group">
+                  <label for="payee1">PAYEE </label>
+                  <label for="payee" type="text" name="payee" value="" disabled style="width: fit-content;">{{ Payee }} </label>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="CV" style="font-size: 12px; font-weight: bold; text-align: center; margin-top: 10px;margin-left: 15%;">CHECK VOUCHER</label>
+                  <input id="doctype" type="text" name="doctype" value="{{ Doctype }}" style="font-size: 14px; width: 90%; text-align: center; margin: 10px; margin-bottom: 20px;" disabled>
+                  
+                  <labe style="font-size: 12px; margin-left: 10px;">No: 
+                  <input id="doc_ref" type="text" name="doc_ref" value="{{ DocRef }}" style="font-size: 12px; width: 70%;" disabled>
+                </labe>
+                  <label style="font-size: 12px; margin-left: 10px;margin-top: 20px;">Date: 
+                  <input id="docdate" type="date" name="docdate" value="{{ VoucherDate }}" disabled>
+                </label>
+                </div>
+              </div>
+        </div>
+     
+
+        <div class="details-content">
+            <table id="Deatails" class="table" >
+             
+                <thead>
+                    <tr>
+                        <th style="width: 80%;">ACCOUNT ENTRY DETAILS</th>
+                        <th style="width: 10%; position: fixed;">DEBIT</th>
+                        <th style="width: 10%;">CREDIT</th>
+                    </tr>
+                </thead>
+                <tbody id="DeatailsBody">
+                  <!-- <div class="container">
+                    <div class="vertical-line"></div>
+                  </div> -->
+                  {% for entry in EntryDetails %}
+            <tr>
+
+                <td id="">{{ entry.ul }} {{ entry.acct_title }} {{ entry.sl_name }}</td>
+                <td style="text-align: end;">{{ entry.debit_amount }}</td>
+                <td style="text-align: end;">{{ entry.credit_amount }}</td>
+            </tr>
+        {% endfor %}
+  
+            </tbody>
+            </table>
+        </div>
+        <div class="Remarks-container">
+            <div class="Remarks-content">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <div class="remto-content">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="Remarks">REMARKS:</label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                        <label for="total">TOTAL:</label>
+                    </div>
+                </div>
+                   
+            </div>
+                </div>
+                
+            </div>
+            <div class="col-md-8">
+                <div class="form-group">
+
+                  <input id="debit" type="text" name="debit" value="{{ Debit }}" style="text-align: end; font-weight: bold;" disabled>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                    <input id="credit" type="text" name="credit" value="{{ Credit }}" style="text-align: end; font-weight: bold;" disabled>
+                </div>
+              </div>
+            </div>
+            <input id="Remarks" type="text" name="Remarks" value="{{ Remarks }}" disabled style="width: 95%; white-space: pre-wrap;">
+        </div>
+ 
+
+        <div class="pesos-content">
+            <label>PESOS:</label>
+            <label id="pesos" type="text" name="pesos"  disabled style="width: fit-content;">{{ AmountWords }}</label>
+        </div>
+
+        <div class="bank-content">
+            <div class="col-md-4">
+                <div class="form-group">
+                  <label for="bank">BANK:</label>
+                  <input id="bank" type="text" name="bank" value="{{ Bank }}" disabled style="width: fit-content;">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="checkNo">CHECK NO.: </label>
+                  <input id="checkNo" type="text" name="checkNo" value="{{ CheckNo }}" disabled style="position: absolute; width:80px; margin-top: 5px;">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="checkDate">DATE: </label>
+                  <input id="checkDate" type="text" name="checkDate" value="{{ VoucherDate }}" disabled style="position: absolute; width: 80px; margin-top: 5px;">
+               
+                </div>
+              </div>
+        </div>
+
+
+        <div class="admin-content">
+            <div class="col-md-3">
+                <div class="form-group">
+                  <label for="Prepared">Prepared by:</label>
+                  <input id="Prepared" type="text" name="Prepared" value="{{ prepared }}" disabled>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="Review">Review by:</label>
+                  <input id="Review" type="text" name="Review" value="{{ reviewed }}" disabled>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="Approved">Approved by:</label>
+                  <input id="Approved" type="text" name="Approved" value="{{ Approved }}" disabled>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="Received">Received by:</label>
+                  <input id="Received" type="text" name="Received" placeholder="Received" disabled>
+                </div>
+              </div>
+        </div>
+
+<script src="../static/js/CVPR.js"></script>
+</body>
+</html>

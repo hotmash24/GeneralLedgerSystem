@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %}
+    Disbursement
+    {% endblock %}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Title</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+ 
+      <div class="modal-body">
+        <p>This is the content of the modal.</p>
+      </div>
+      
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save Changes</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script src="../static/js/disbursement.js"></script>
+</body>
+</html>
+{% endblock %} 

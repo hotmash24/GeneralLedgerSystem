@@ -1,0 +1,1162 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+
+
+}
+
+body{
+background-size: cover;
+}
+
+
+label{
+  font-size: small;
+  font-weight: bold;
+}
+input[readonly] {
+  background-color: #cbcbcb; 
+}
+
+input, select {
+  /* font-size: small !important; */
+  caret-color: transparent;
+  /* height: 30px !important; */
+}
+
+
+input:focus{
+  caret-color: black; /* Adjust the color as needed */
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+button {
+  background-color: #0fc92e;
+  color: black;
+  }
+
+button:focus {
+background-color: #0fc92e;
+color: black;
+}
+.container {
+  margin-left: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  /* height: 1400px; */
+  width: 1400px;
+}
+
+@media (max-width: 1500px) {
+  .container {
+    /* margin-left: 10px; */
+    width: auto;
+  }
+}
+
+
+.tab-container {
+  margin-left: 0px;
+}
+
+
+
+
+.tab {
+  /* position: absolute; */
+  display: inline-block;
+  padding: 10px;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+
+
+.tab-content .content {
+  height: fit-content;
+  display: none;
+  padding: 20px;
+
+  background-color: #f9f9f9;
+}
+
+.tab-content .content.show {
+  /* height: 1000px; */
+  display: block;
+  /* overflow: auto; */
+}
+
+.tab-content .list-container{
+  width:1350px;
+  height: 600px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+
+}
+
+.transaction-container{
+  /* border: solid; */
+  border-radius: 5px;
+  padding-right: 15px;
+  width:1380px;
+  height: 800px;
+}
+
+
+.list-container .table{
+  margin-bottom: 100px;
+  margin-left: 25px;
+  max-width: max-content;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  align-items: center;
+
+
+}
+
+#tab1 .button-content{
+  margin-right: 40px;
+
+}
+
+.button-content{
+  position: relative;
+  float: right;
+  bottom: 30px;
+}
+
+
+.button-content button{
+background-color: rgb(41, 41, 229);
+color: white;
+border-color: white;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+width: 60px;
+height: 20px;
+font-size: x-small;
+}
+
+
+
+.button-content button:hover{
+background-color: #0fc92e;
+cursor: pointer;
+color: black;
+  }
+
+  h5{
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+font-size: 15px;
+
+text-align: center;
+margin-bottom: 10px;
+font-weight: bold;
+color: white;
+background-color: #0f31c9;
+  }
+
+
+
+  h4{
+
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  hr{
+    color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 1200px;
+  }
+
+.transactiondetails-content{
+
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  max-height: max-content;
+  padding: 10px;
+  z-index: 999;
+  /* position: absolute; */
+    /* height: 400px; */
+}
+
+
+.paysup-content{
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
+  margin-bottom: 20px;
+}
+
+.Payee-content {
+  /* border: solid; */
+  padding: 10px;
+  position: relative;
+  left: 10px;
+  width: 600px;   
+  height: fit-content;
+
+}
+
+.Payee-content input{
+  border-radius: 5px;
+    position: relative;
+    width: 530px;
+    font-size: large;
+    float: right;
+    height: 40px;
+    margin-right: 40px;
+   margin-top: 10px; /* Adjust this value as needed */
+   padding-top: 10px; /* Adjust this value as needed */
+}
+.Payee-content select{
+   border-radius: 5px;
+    position: relative;
+    width: 530px;
+    font-size: large;
+    float: right;
+    height: 40px;
+    margin-top: 40px;
+    margin-right: 40px;
+}
+.Payee-content label#bank,label#payee,label[for="draweeInput"]{
+  position: relative;
+  left: 12px;
+  font-weight: bold;
+}
+
+.selected {
+  background-color: #4baee7; /* Set your desired background color here */
+}
+
+/* .Payee-content label#payee{
+  position: relative;
+  left: 15px;
+
+} */
+
+/* ---------Payment-******************************----------------------------------------------------------------------------- */
+.Payment-content{
+  margin-top: 50px;
+  display: flex;
+}
+
+.Payment-content input{
+     border-radius: 5px;
+    position: relative;
+    width: 150px;
+   margin-top: 10px; 
+   padding-top: 10px; 
+}
+
+.Payment-content label{
+margin-left: 10px;
+font-weight: bold;
+}
+
+
+.details-content{
+  /* border: solid; */
+  position:relative;
+  margin-top: -240px;
+  display: flex;
+  right: 50px;
+margin-bottom: 20px;
+  float: right;
+}
+
+
+.details-content .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.details-content .form-group label,select{
+  margin-left: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.details-content .form-group input {
+  position: relative;
+  border-radius: 5px;
+  margin-left: 20px;
+  font-size: large;
+  width: 195px;
+  height: 40px;
+}
+
+
+.details-content  select {
+  position: relative;
+  border-radius: 5px;
+  font-size: large;
+  width: 195px;
+  height: 40px;
+
+}
+
+
+
+
+.remarks{
+  margin-top: -130px;
+  position: relative;
+  float: right;
+  right: 50px;
+}
+.remarks textarea{
+  font-size: large;
+  height: 120px;
+  width: 620px;
+}
+
+.remarks label{
+  font-weight: bold;
+  position: relative;
+top: -130px;
+left: 63px;
+}
+
+.accountEntry-container{
+  display: none;
+  border: 1px solid rgba(173, 168, 168, 0.632);
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.accountEntry-content{
+  position:relative;
+  border-radius: 5px;
+  display: flex;
+  border: 1px solid rgba(173, 168, 168, 0.632);
+  padding-bottom: 10px;
+  /* right: 50px; */
+  /* float: right; */
+}
+
+
+.accountEntry-content .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.accountEntry-content .form-group label {
+  text-align: center;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  /* font-size: large; */
+}
+
+.accountEntry-content .form-group input {
+  border-radius: 5px;
+  margin-left: 15px;
+  font-size: large;
+  width: 80px;
+}
+
+.accountEntry-content .form-group input#accCode {
+  width: 220px;
+}
+.accountEntry-content .form-group input#slAcc, input#accTitle {
+  width: 300px;
+
+}
+
+.accountEntry-content .form-group input#debit, input#credit {
+  width: 160px;
+  text-align: end;
+}
+
+
+
+
+   .transaction-content{
+    border-top: 1px solid rgba(173, 168, 168, 0.632);
+    position: relative;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    height: 200px;
+    min-width: min-content;
+    overflow: auto;
+   }
+
+
+   .tab {
+    font-weight: bold;
+    width: auto;
+    /* top: 0;
+    bottom: 0;
+    margin: 0; */
+    text-align: center;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
+    background-color: transparent;
+  }
+  
+  .tab.selected {
+    background-color: #0f31c9;
+    color: white;
+  }
+
+   .table {
+    position: absolute;
+    border: 1px solid rgba(173, 168, 168, 0.632);
+    max-width: max-content;
+  }
+
+  .table-list { 
+
+    border: 1px solid rgba(173, 168, 168, 0.632);
+    border-radius: 5px;
+    max-width: max-content;
+
+  }
+  .scrollable-table {
+    margin-left: 30px;
+    border: 1px solid rgba(173, 168, 168, 0.632);
+    height: 95%;
+    border-radius: 5px;
+    width: max-content;
+    overflow: auto;
+  }
+  
+  #tab1 table {
+    border-collapse: collapse;
+    width: 100%; /* Adjust the width as needed */
+  }
+  
+  #tab1 table tr th {
+    width: 100px;
+    position: sticky;
+    top: -2px;
+    border-bottom: solid;
+    background-color: #f5f5f5;
+    border: 1px solid rgba(173, 168, 168, 0.632);
+    /* text-align: center; */
+    /* margin-right: 20px;
+    margin-left: 20px; */
+  }
+
+ #tab2 table tr th {
+  
+    border-top: 1px solid rgba(173, 168, 168, 0.632);
+    border-bottom: 1px solid rgba(173, 168, 168, 0.632);
+    /* text-align: center; */
+    padding-left: 60px;
+    padding-right: 60px;
+   width: fit-content;
+  }
+
+table tr th {
+    border-right: 1px solid rgba(173, 168, 168, 0.632);
+    /* text-align: center; */
+    width: fit-content;
+    
+    font-size: small;
+  }
+   
+   
+   table tr td {
+    border-right: 1px solid rgba(173, 168, 168, 0.632);
+    border-bottom: 1px solid rgba(173, 168, 168, 0.632);
+    padding:5px;
+    text-align: center;
+    width: fit-content;
+    font-size: small;
+    height: 20px;
+  }
+
+   table tr td .actions {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+  }
+
+
+  table tr td .actions button{
+    border:solid;
+    font-size: xx-small;
+    border-width: 1px;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+    width: 20px;
+    margin: 5px;
+    background-color: #283be8;
+  }
+
+ table tr td .actions button:hover{
+background-color: blue;
+color: white;
+cursor: pointer;
+  }
+
+
+
+  .dc-content {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    margin-top: 10px;
+
+    margin-right: 20px;
+  }
+
+.dc-content input{
+  margin-right: 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: large;
+  width: 150px;
+  text-align: end;
+}
+
+
+.admin-container{
+  margin-top: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(173, 168, 168, 0.632);
+  border-radius: 5px;
+  /* border-right: 1px solid rgba(173, 168, 168, 0.632); */
+  height: 120px;
+  width: 100%;
+  /* margin: 10px;
+  margin-bottom: 5px; */
+}
+
+.admin-content{
+  position:relative;
+  display: flex;
+}
+
+
+.admin-content .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.admin-content .form-group label {
+  margin-left: 40px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  /* font-size: large; */
+}
+
+.admin-content .form-group select {
+  border-radius: 5px;
+  margin-left: 40px;
+  font-size: large;
+  width: 400px;
+  height: 25px;
+}
+
+
+/* .-content{
+  position: relative;
+  height: 80px;
+  max-width: 200%;
+  margin-top: 50px;
+  margin-left: 20px;
+  padding-top: 25px;
+}
+
+.admin-content select{
+  height: 30px;
+  width: 350px;
+
+}
+.admin-content label{
+  position: relative;
+  bottom: 30px;
+  font-weight: bold;
+  left: 100px;
+} */
+
+.document-content{
+  position: relative;
+  /* top: 100px; */
+  height: 210px;
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
+  width: 100%;
+  /* padding-bottom: 100px; */
+  float: right;
+}
+
+/* .document-content .doc-button button{
+position: relative;
+height: 25px;
+font-size: x-small;
+padding-left: 10px;
+padding-right: 10px;
+left: 120px;
+background-color: rgb(41, 41, 229);
+color: white;
+border-color: white;
+float: right;
+
+} */
+
+
+.doc-button{
+float: right;
+width: max-content;
+}
+
+.doc-button label{
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: solid;
+  border-width: 1px;
+  position: relative;
+  padding-left: 10px;
+padding-right: 10px;
+margin-top: 5px;
+  margin-bottom: 5px;
+  border: solid;
+ right: 240px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 50px;
+font-size: x-small;
+background-color: rgb(41, 41, 229);
+color: white;
+border-color: white;
+height: 25px;
+float: right;
+}
+
+
+.document-content .count-content .table{
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.document-content .count-content{
+  border-radius: 5px;
+  margin-top: 32px;
+  width: 45%;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  height: 170px;
+}
+
+.document-content .count-content label {
+position: relative;
+
+  margin-bottom: 80px;
+  top: 5px;
+  margin-left: 180px;
+
+}
+
+.file-content{
+  display: flex;
+  position: relative;
+  border-radius: 10px;
+  height: 170px;
+  width: 50%;
+  float: right;
+  margin-right: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#imgPreview,#pdfPreview{
+  margin-top: 10px;
+  width: 150px;
+  height: 150px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: solid;
+}
+#pdfPreview{
+
+  /* height: 10px;
+  width: 10px; */
+  position: relative;
+  left: 40px;
+}
+
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow: auto; */
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 20px;
+  border: 1px solid #888;
+  height: fit-content;
+  /* width: 80%; */
+}
+.modal-content input, select{
+ height: 40px;
+width: 300px;
+font-size: large;
+font-weight: bold;
+border-radius: 5px;
+}
+
+
+
+#searchForm button:hover{
+  background-color: #0fc92e;
+}
+
+#searchForm button{
+  margin-top: 10px;
+  margin-left: 40px;
+  border-color: white;
+  border-radius: 10px;
+  width: 100px;
+  background-color: #0915fbf3;
+  color: white;
+}
+#searchForm button i{
+  color: white;
+
+}
+
+
+#doc {
+  padding-right: 25px; /* Adjust this value to leave space for the icon */
+  position: relative;
+}
+
+#doc::before {
+  content: "\f002"; /* Replace with the Font Awesome icon code you want to use */
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  color: #999; /* Adjust the color of the icon */
+  pointer-events: none; /* Ensures the icon does not interfere with input functionality */
+}
+
+#mytranstype .modal-content select{
+height: 40px;
+ width: 400px;
+ font-size: large;
+ font-weight: bold;
+ border-radius: 5px;
+ }
+
+ 
+ #TransTypeForm button:hover{
+  background-color: #0fc92e;
+}
+
+#TransTypeForm button{
+  
+  /* margin-top: 10px;
+  margin-left: 60px; */
+  padding: 2px;
+  border-color: white;
+  border-radius: 10px;
+  width: 100px;
+  background-color: #0915fbf3;
+  color: white;
+}
+
+#TransTypeForm button#cancelBtn1{
+  margin-left: 25px;
+
+}
+
+#TransTypeForm button#oktranstype{
+float: right;
+
+}
+
+#TransTypeForm button i{
+  margin-right: 10px;
+  color: white;
+
+}
+/* #Confirm button{
+  margin-top: 10px;
+  position: relative;
+  border-radius: 20px;
+  width: 100px;
+  left: 40px;
+  color: white;
+  background-color: blue;
+  margin-right: 100px;
+  
+} #Confirm button:hover{
+  background-color: #0fc92e;
+} */
+
+
+/* -------------list of payee -----------------------*/
+
+#payeeResultsContainer {
+  position: relative;
+
+}
+
+#payeeResults {
+
+  list-style-type: none;
+  padding: 0;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px solid #0b0808; 
+  background-color: #fffffffb;
+  position: absolute;
+  margin-top: 55px;
+  width: fit-content;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+#payeeResults li {
+  border: 1px solid rgba(173, 168, 168, 0.632);
+  padding: 8px;
+  cursor: pointer;
+}
+
+#payeeResults li:hover {
+  background-color: #488ddd;
+}
+
+
+#draweeResultsContainer {
+  position: relative;
+
+}
+
+#draweeResults {
+
+  list-style-type: none;
+  padding: 0;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px solid #0b0808; 
+  background-color: #fffffffb;
+  position: absolute;
+  margin-top: 55px;
+  width: fit-content;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+#draweeResults li {
+  border: 1px solid rgba(173, 168, 168, 0.632);
+  padding: 8px;
+  cursor: pointer;
+}
+
+#draweeResults li:hover {
+  background-color: #488ddd;
+}
+
+
+#AccCodeResultsContainer {
+  position: relative;
+
+}
+
+#AccCodeResults {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px solid #0b0808; 
+  background-color: #fffffffb;
+  position: absolute;
+  /* margin-top: 55px; */
+  width:max-content;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+#AccCodeResults li {
+  border: 1px solid rgba(173, 168, 168, 0.632);
+  padding: 8px;
+  cursor: pointer;
+}
+
+#AccCodeResults li:hover {
+  background-color: #488ddd;
+}
+
+
+#slAcctResultsContainer {
+  position: relative;
+
+}
+
+#slAccResults {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px solid #0b0808; 
+  background-color: #fffffffb;
+  position: absolute;
+  /* margin-top: 55px; */
+  width:max-content;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+#slAccResults li {
+  border: 1px solid rgba(173, 168, 168, 0.632);
+  padding: 8px;
+  cursor: pointer;
+}
+
+#slAccResults li:hover {
+  background-color: #488ddd;
+}
+
+
+#acctTilteList {
+  list-style-type: none;
+  padding: 0;
+  /* right: 5px; */
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px solid #0b0808; 
+  background-color: #fffffffb;
+  position: absolute;
+  width:fit-content;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+#acctTilteList li {
+  border: 1px solid rgba(173, 168, 168, 0.632);
+  padding: 8px;
+  cursor: pointer;
+}
+
+#acctTilteList li:hover {
+  background-color: #488ddd;
+}
+
+
+#AddEntryId button {
+  margin-top: 10px;
+  position: relative;
+  border-radius: 20px;
+  width: 100px;
+  left: 40px;
+  color: rgb(255, 255, 255);
+  margin-right: 100px;
+  border: none;
+  font-weight: bold;
+  background-color: #0f31c9;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+#AddEntryId button:hover {
+  transform: translateY(-2px);
+  color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #4be768 !important;
+  font-weight: bold;
+}
+
+#AddEntryId button:active {
+  transform: translateY(-2px);
+  /* transform: translateY(0); */
+  font-weight: bold;
+  color: white;
+  background-color: #4be768 !important;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.AddEntryId .selected {
+  transform: translateY(-2px);
+  /* transform: translateY(0); */
+  font-weight: bold;
+  color: white;
+  background-color: #4be768 !important;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+} 
+
+
+
+
+#Confirm button {
+  margin-top: 10px;
+  position: relative;
+  border-radius: 20px;
+  width: 100px;
+  left: 40px;
+  color: rgb(255, 255, 255);
+  margin-right: 100px;
+  border: none;
+  font-weight: bold;
+  background-color: #0f31c9;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+#Confirm button:hover {
+  transform: translateY(-2px);
+  color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #4be768 !important;
+  font-weight: bold;
+}
+
+#Confirm button:active {
+  transform: translateY(-2px);
+  /* transform: translateY(0); */
+  font-weight: bold;
+  color: white;
+  background-color: #4be768 !important;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.Confirm .selected {
+  transform: translateY(-2px);
+  /* transform: translateY(0); */
+  font-weight: bold;
+  color: white;
+  background-color: #4be768 !important;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+} 
+
+
+
+
+#ApplicationOfPayment .modal-content {
+  position: relative;
+  bottom:80px;
+  background-color: #fefefe;
+  margin: 15% auto;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 20px;
+  border: 1px solid #888;
+  height:420px;
+  /* width: 80%; */
+}
+#ApplicationOfPayment input[type='text']{
+height: 30px;
+width: 650px;
+font-size: small;
+font-weight: bold;
+border-radius: 5px;
+}
+
+
+#ApplicationOfPayment input{
+  height: 30px;
+  width: 200px;
+  font-size: small;
+  font-weight: bold;
+  border-radius: 5px;
+  }
+
+  #ApplicationOfPayment table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+}
+
+
+#ApplicationOfPayment button:hover{
+  background-color: #0fc92e;
+}
+
+#ApplicationOfPayment button{
+  float: right;
+  margin-bottom: 3px;
+  /* margin-top: 3px; */
+  border-color: white;
+  border-radius: 10px;
+  height: 25px;
+  width: 120px; 
+  background-color: #0915fbf3;
+  color: white;
+}
+
+#ApplicationOfPayment button i{
+  margin-right: 10px;
+
+}
+
+ .ApplicationTable-content{
+    margin-top: 10px;
+    border: 1px solid rgba(173, 168, 168, 0.632);
+    height: 220px;
+    border-radius: 5px;
+    overflow: auto; /* Enable vertical scrolling if needed */
+  }
+
+  .ApplicationTable-content #applicationTable{
+    overflow: auto; /* Enable vertical scrolling if needed */
+  }
+
+   .btn{
+    background-color: #0f31c9;
+    margin-left: 5px;
+    border-style: 8px;
+  font-size: smaller;
+  padding-left:5px ;
+  padding-right:5px ;
+    border-radius: 5px;
+    color: white;
+    border-color: white;
+  }
+
+  
+   .btn:hover{
+  background-color: #53e047;
+  color: white;
+}
+
+
+/* Add a CSS class for centering the flash message */
+.centered-message {
+  background-color: #ee513c;
+  position: fixed;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Style the icon (you can use your preferred icon library) */
+.centered-message i {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.total-container {
+  margin-top: 5px;
+}

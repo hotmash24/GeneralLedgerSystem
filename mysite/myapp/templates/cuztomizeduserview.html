@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD Example</title>
+</head>
+<body>
+    <h1>CRUD Example</h1>
+
+    <h2>List of Objects</h2>
+    <ul>
+        <!-- Replace the following 'objects' variable with your data from Django -->
+        <!-- Each object should have an 'id' and a 'title' property -->
+        <!-- Example data: objects = [{'id': 1, 'title': 'Object 1'}, {'id': 2, 'title': 'Object 2'}] -->
+        {% for object in objects %}
+            <li><a href="#edit{{ object.id }}">{{ object.title }}</a> | <a href="#delete{{ object.id }}">Delete</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add/Edit Object</h2>
+    <form method="post" action="#">
+        <input type="hidden" id="edit_id" name="id" value="">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+        <button type="submit" id="save">Save</button>
+    </form>
+
+    <h2>Confirm Delete Object</h2>
+    <form method="post" action="#">
+        <input type="hidden" id="delete_id" name="id" value="">
+        <p>Are you sure you want to delete "<span id="delete_title"></span>"?</p>
+        <button type="submit" id="confirm_delete">Confirm</button>
+    </form>
+
+    <script>
+        const editLinks = document.querySelectorAll('a[href^="#edit"]');
+        const deleteLinks = document.querySelectorAll('a[href^="#delete"]');
+        const editIdField = document.getElementById('edit_id');
+        const editTitleField = document.getElementById('title');
+        const deleteIdField = document.getElementById('delete_id');
+        const deleteTitleField = document.getElementById('delete_title');
+        const saveButton = document.getElementById('save');
+        const confirmDeleteButton = document.getElementById('confirm_delete');
+
+        // Event listener for edit links
+        editLinks.forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const objectId = link.getAttribute('href').replace('#edit', '');
+                const object = objects.find(obj => obj.id === parseInt(objectId));
+                if (object) {
+                    editIdField.value = object.id;
+                    editTitleField.value = object.title;
+                }
+            });
+        });
+
+        // Event listener for delete links
+        deleteLinks.forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const objectId = link.getAttribute('href').replace('#delete', '');
+                const object = objects.find(obj => obj.id === parseInt(objectId));
+                if (object) {
+                    deleteIdField.value = object.id;
+                    deleteTitleField.textContent = object.title;
+                }
+            });
+        });
+
+        // Event listener for save button
+        saveButton.addEventListener('click', event => {
+            // Perform the save action using JavaScript or submit the form to Django's views using AJAX
+            // Example JavaScript action: alert("Save action performed!");
+        });
+
+        // Event listener for confirm delete button
+        confirmDeleteButton.addEventListener('click', event => {
+            // Perform the delete action using JavaScript or submit the form to Django's views using AJAX
+            // Example JavaScript action: alert("Delete action confirmed!");
+        });
+    </script>
+</body>
+</html>

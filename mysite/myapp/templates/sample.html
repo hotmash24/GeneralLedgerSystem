@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <title>{% block title %}{% endblock %}</title>
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"> -->
+    <link rel="stylesheet" href="../static/css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/sample.css">
+    <link rel="stylesheet" href="../static/css/time.css">
+    <!-- <link rel="stylesheet" href="../static/sidebar.css"> -->
+</head>
+<body>
+    <div class="wrapper">
+        <div class="section">
+          <div class="topnav">
+            <button id="togglesidebar" role="button"><i class="fas fa-bars"></i></button>
+            <div class="btn">
+              <div class="dropdown">
+                <button class="dropbtn">File <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a  href="#File">Customized Reports</a>
+                    <a href="#">Change Unit Location</a>
+                    <a href="#">Log as Different User</a>
+                    <a href="#">Exit Program</a>
+                </div>
+            </div>
+            <div class="dropdown">
+              <button class="dropbtn">Reference <i class="fas fa-caret-down"></i></button>
+              <div class="dropdown-content">
+                  <a href="#">Chart of Accounts</a>
+                  <a href="#">Subsidiary Ledger Accounts</a>
+                  <a href="#">Sl Categories</a>
+                  <a href="#">Reference Number Setup</a>
+                  <a href="#">Unit Location</a>
+                  <a href="#">Department</a>
+                  <a href="#">Bank Details</a>
+                  <a href="#">Document Type Setup</a>
+                  <a href="#">Document Account Title Setup</a>
+                  <a href="#">Books of Accounts Header Setup</a>
+                  <a href="#">Customer Group Details</a>
+                  <a href="#">Customer Area Details</a>
+                  <a href="#">Customer KOB Details</a>
+                  <a href="#">Supplier Group Details</a>
+              </div>
+          </div>
+
+          <div class="dropdown">
+            <button class="dropbtn">Adminitration <i class="fas fa-caret-down"></i></button>
+            <div class="dropdown-content">
+              <a href="#">User Account Control</a>
+              <a href="#">System Configuration</a>
+                <a href="#">Un-Post/Repost Transaction</a>
+                <a href="#">Clear Login Errors</a>
+                <a href="#">Closing Routine</a>
+                <a href="#">Compony Setup</a>
+                <a href="#">Report Activation</a>
+                <a href="#">Delete/Clear Records & Tables</a>
+                <a href="#">Uploading Data</a>
+                <a href="#">Change Default Printer</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Utility <i class="fas fa-caret-down"></i></button>
+          <div class="dropdown-content">
+              <a href="#">User Account Control</a>
+              <a href="#">System Configuration</a>
+          </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Help <i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-content">
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+        </div>
+    </div>
+          </div>
+        </div>
+            <div class="sidebar" id="sidebar">
+                <div class="profile">
+                    <a href="{% url 'home' %}">
+                        <img src="../static/img/Official LEAD Logo 23Nov12.png" alt="Official LEAD Logo" width="200" height="200">
+                        <label>LEAD Solutions Inc</label>
+                    </a>
+
+                </div>
+       
+                <ul>
+                    <li>
+                     <!-- <a href="{% url 'cashreceipts' %}"> <i class="fas fa-check"></i>
+                          <label class="item">Cash Deposit</label></a> -->
+                          <a href="{% url 'cashreceipts' %}" class="icon-container" title="Cash Deposit">
+                            <i class="fa-solid fa-circle-dollar-to-slot fa-beat"></i>
+                            <label class="item">Cash Deposit</label>
+                          </a>
+                      </li>
+                      <li>
+             
+                          <a href="{% url 'cv_list_transaction' %}" class="icon-container" title=" Cash Disbursement">
+                            <i class="fa-solid fa-landmark fa-beat"></i>
+                            <label class="item">Cash Disbursement</label>
+                          </a>
+                        </label>
+                      </li>
+                      <li>
+    
+                          <a href="{% url 'xxx' %}"  class="icon-container" title="Sales Receivable">
+                            <i class="fa-solid fa-book fa-beat"></i>
+                            <label class="item">Sales Receivable</label>
+                          </a>
+                        </label>
+                      </li>
+
+                      <li>
+                        <a href="{% url 'CVPR_reportView' %}"  class="icon-container" title="Purchased & Payable">
+                          <i class="fa-solid fa-cart-shopping fa-beat"></i>
+                            <label class="item">Purchased & Payable</label>
+                        </a>
+                      </li>
+                      <li>
+             
+                            <a href="{% url 'modal' %}" class="icon-container" title="General Journal">
+                              <i class="fa-solid fa-layer-group fa-beat"></i>
+                                <label class="item">General Journal</label>
+                            </a>
+                      </li>
+
+                      <li>
+                       
+                        <a href="{% url 'modal' %}"  class="icon-container" title="Transaction Listing">
+                          <i class="fa-solid fa-circle-info fa-beat"></i>
+                          <label class="item">Transaction Listing</label>
+                        </a>
+                      </li>
+                      <li>
+      
+                            <a href="{% url 'modal' %}"  class="icon-container" title="Reports">
+                              <i class="fa-solid fa-chart-bar fa-beat"></i>
+                          <label class="item">Reports</label>
+                            </a>
+                      </li>
+                      <li>
+                    
+                        <!-- <a href = "{% url 'logout' %}" id = "logout" class="icon-container" title="Log Out"> -->
+                          <a href = "#" id ="logout" class="icon-container" title="Log Out">
+                          <i class="fa-solid fa-right-from-bracket fa-beat"></i>
+                          <label class="item" >Log Out</label> </a>
+                      </li>
+                </ul>
+
+                <div class="User-content">
+                  {% if user.is_authenticated %}
+                  <input id="user" type="text" name="user" value="{{ user.username|upper }}">
+                  {% endif %}
+                  <label for="current-user">Current User</label>
+
+                  {% if ul_code %}
+                  <input id="CurrentLocation" type="text" name="user" value="{{ ul_code }}">
+                  {% endif %}
+             
+                  <label for="location">Unit Location</label>
+                </div>
+        
+                <div class="datetime">
+                  <a href="{% url 'xxx' %}">
+                  <div class="date">
+                    <span id="dayname">Day</span>,
+                    <span id="month">Month</span>
+                    <span id="daynum">00</span>,
+                    <span id="year">Year</span>
+                  </div>
+                  <div class="time">
+                    <span id="hour">00</span>:
+                    <span id="minutes">00</span>:
+                    <span id="seconds">00</span>
+                    <span id="period">AM</span>
+                  </div>
+                </a>
+                </div>
+             
+                <div class="Image-content">
+                    <a href="{% url 'home' %}">
+                        <img src="../static/img/The-LEAD-Group.png" alt="Official LEAD Logo" width="200" height="200">
+                    </a>
+                </div>
+
+
+                <div class="site-content">
+                  <a href="http://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="https://www.messenger.com/" target="_blank"> <i class="fa-brands fa-facebook-messenger"></i></a>
+                  <a href="http://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                  <a href="http://www.facebook.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="http://www.twitter.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="http://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                  <a href="http://www.google.com" target="_blank"><i class="fa-brands fa-google-plus-g"></i></a>
+                  <a href="http://www.paypal.com" target="_blank"><i class="fa-brands fa-paypal"></i></a>
+                  <a href="http://www.yahoo.com" target="_blank"><i class="fa-brands fa-yahoo"></i></a>
+                  <a href="https://drive.google.com/" target="_blank"><i class="fa-brands fa-google-drive"></i></a>
+               
+              </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="body-content">
+        <div class="reference">
+          {% block content %}
+          {% endblock %}
+            <footer>
+                <p>&copy; Lead Solutions Inc. 2023<img src="../static/img/Official LEAD Logo 23Nov12.ico" alt="Official LEAD Logo" width="50px" height="50px"></p>
+              
+            </footer>
+        </div>
+    </div>
+
+    <div id="logoutModal" class="modal">
+      <div class="modal-content">
+        <form id="logoutModalid">
+          {% csrf_token %}
+          <h3>Confirmation <i class="fa-solid fa-circle-info fa-beat"></i></h3>
+          <p>Do you want to logout <i class="fa-solid fa-circle-question fa-beat"></i></p>
+          <div class="modal-buttons">
+            <button id="logoutYes" type="button"> <i class="fas fa-check"></i>Yes</button>
+            <button id="logoutNo" type="button"> <i class="fas fa-times"></i>No</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+<script src="../static/js/ajax.googleapis.com_ajax_libs_jquery_3.6.0_jquery.min.js"></script>
+<script src="../static/js/code.jquery.com_jquery-3.7.0.min.js"></script>
+<script src="../static/js/sample.js"></script>
+<script src="../static/js/time.js"></script>
+</body>
+</html>
+   
+

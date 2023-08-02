@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+body{
+	background-size: cover;
+}
+.button-content{
+    width: fit-content;
+}
+.button-content button{
+background-color: rgb(41, 41, 229);
+color: white;
+border-color: white;
+border-radius: 10px;
+width: 70px;
+}
+
+
+/* .transactiondetails-content{
+    justify-content: baseline;
+    border: solid;
+    width: fit-content;
+ 
+ }
+  */
+.Payee-content {
+    padding: 10px;
+    position: relative;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+ /* border: solid; */
+ left: 10px;
+ width: 300px;
+margin-top: 20px; /* Adjust this value as needed */
+padding-top: 5px; /* Adjust this value as needed */
+}
+.Payee-content input{
+    position: relative;
+    /* border: solid; */
+    width: 290px;
+   margin-top: 10px; /* Adjust this value as needed */
+   padding-top: 10px; /* Adjust this value as needed */
+}
+
+.Payee-content textarea{
+    width: 290px;
+    height: 90px;
+    
+}
+.Payee-content label{
+    font-size: medium;
+    font-weight: bold;
+    }
+
+/* ---------Payment-******************************----------------------------------------------------------------------------- */
+
+
+.details-content{
+    /* border: solid; */
+    padding: 10px;
+    position: relative;
+    bottom: 260px;
+   float: right;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.details-content label{
+  font-weight: bold;
+}
+.Payment-content{
+    position: relative;
+    left: 10px;
+    width: 300px;
+   margin-top: 20px; 
+   padding-top: 5px;
+}
+
+.Payment-content input{
+    position: relative;
+    width: 290px;
+   margin-top: 10px; 
+   padding-top: 10px; 
+}
+.Payment-content select{
+    position: relative;
+    width: 290px;
+   margin-top: 10px; 
+   padding-top: 10px; 
+}
+
+.radio-content{
+    position: relative;
+    top: 20px;
+width: 300px;
+}
+
+ .radio-content label{
+ margin: 20px;
+}
+
+.radio-content label input[type="radio"] {
+    position: relative;
+    left: 10px;
+    transform: scale(1.5); /* Adjust the scale value as needed */
+  }

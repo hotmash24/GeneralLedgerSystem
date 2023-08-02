@@ -1,0 +1,69 @@
+/* sidebar.css */
+
+/* Base styles for the sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Adjust the width as needed */
+    height: 100%;
+    background-color: #f0f0f0;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .sidebar .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .sidebar .profile img {
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    border-radius: 50%;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .sidebar li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .sidebar label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .sidebar .icon {
+    margin-right: 10px;
+  }
+  
+  /* Styles for the minimized sidebar */
+  .sidebar.minimized {
+    width: 70px; /* Adjust the width as needed */
+  }
+  
+  .sidebar.minimized .profile img {
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+  }
+  
+  .sidebar.minimized span.item {
+    display: none;
+  }
+  
+  /* Styles for the content when the sidebar is minimized */
+  .content.minimized {
+    margin-left: 70px; /* Adjust this value to match the minimized sidebar width */
+  }
+  
+  /* Additional styles */
+  /* Add any additional styling for your content here */
+  

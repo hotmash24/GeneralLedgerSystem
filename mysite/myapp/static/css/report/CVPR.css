@@ -1,0 +1,214 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+  
+  
+  }
+  
+  body{
+  background-size: cover;
+  }
+
+  label{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+  }
+
+  input{
+    font-size: 12px;
+    color: black;
+    border: none;
+    background-color: white;
+  }
+  .cvpr-container{
+    border-radius: 10px;
+    margin: 10px;
+    border: solid;
+    border-width: 2px;
+    height: fit-content;
+    width: 98%;
+  }
+
+.Head-content{
+    height: 120px;
+    display: flex;
+    border-bottom: 1px;
+    border-radius: 10px;
+}
+
+/* .Head-content label,input{
+border: none;
+background-color: white;
+
+} */
+
+
+.Head-content .col-md-3{
+border-right: 1px solid;
+border-bottom: 1px solid;
+border-width: 1px;
+width:80%;
+
+}
+
+.Head-content .col-md-8{
+
+    border-bottom: 1px solid;
+    border-width: 1px;
+    width:20%;
+    
+}
+
+.Head-content .col-md-3 input,label[for="payee"]{
+margin-top: 100px;
+margin-left: 10px;
+
+    
+}
+
+.Head-content .col-md-8 label{
+width: fit-content;
+font-weight: bold;
+font-size: 12px;
+}
+.Head-content  input{
+    width: 100px;
+    font-weight: bold;
+    font-size: 12px;
+}
+.details-content{
+    height: 200px;
+}
+.details-content table{
+    width: 100%;
+}
+
+.details-content table th{
+    border: solid;
+    border-width: 1px;
+    margin: 0;
+}
+
+
+.Remarks-container{
+    height: 70px;
+    border: solid;
+     border-width: 1px;
+}
+.Remarks-content{
+
+    display: flex;
+    border-width: 1px;
+    height:10 ;
+}
+    
+.Remarks-content label[for="total"]{
+    display: flex;
+    justify-content: flex-end;
+
+} 
+.remto-content{
+    display: flex;
+
+}
+
+.Remarks-conten .remto-content .col-md-3{
+    border: none;
+
+}
+
+.Remarks-content .col-md-3{
+
+    border-width: 1px;
+    width:80%;
+    
+}
+    
+.Remarks-content .col-md-8{
+        border: 1px solid;
+        border-width: 1px;
+        width:10%;  
+}
+.Remarks-content .col-md-8 input{
+    font-size: 16px;
+    width: 100%;
+
+}
+
+
+.pesos-content{
+    width: 100%;
+  
+    padding: 5px;
+    border-width: 1px;
+}
+
+.bank-content{
+
+    display: flex;
+}
+
+.bank-content label{
+width: fit-content;
+}
+
+
+.bank-content .col-md-4{
+    padding: 5px;
+    border: solid;
+    border-width: 1px;
+    width: 40%;
+}
+
+
+.bank-content .col-md-3{
+    padding: 5px;
+    border: solid;
+    border-width: 1px;
+    width: 20%;
+}
+
+.bank-content .col-md-3 input{
+width: 100px;
+}
+.admin-content{
+    display: flex;
+    height: 70px;
+}
+
+
+.admin-content .col-md-3{
+    padding: 5px;
+    border: solid;
+    border-width: 1px;
+    width: 25%;
+}
+
+.admin-content .col-md-3 input{
+    position: relative;
+    top: 0px;
+    right: 0px;
+
+}
+
+.container {
+    position: relative;
+    left: 700px;
+    /* Other styles for the container if needed */
+  }
+  
+  .vertical-line {
+    position: absolute;
+    top: 20px; /* Adjust the vertical position as needed */
+    left: 0;
+    width: 1px;
+    height: 100px; /* Adjust the height as needed */
+    background-color: black; /* Change the color as needed */
+    z-index: 1; /* Set a higher z-index value to bring it to the front */
+  }
+  

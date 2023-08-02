@@ -1,0 +1,68 @@
+{% extends "sample.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/home.css"/>
+    <link rel="stylesheet" href="../static/css/fontawesome/css/all.min.css">
+    <title>Document</title>
+</head>
+<body id="bodyid">
+<div class="lead-container">
+    <div class="lead-content">
+        <img src="../static/img/The-LEAD-Group.png">
+    </div>
+    
+
+    {% if message %}
+    <!-- The Modal -->
+    <div class="modal" id="messageModal">
+        <div class="modal-content">
+            <i class="fa-solid fa-triangle-exclamation fa-beat"></i>
+            <h2 class="custom-heading">Permission Denied</h2>
+            <p>{{ message }}</p>
+            <!-- Add your form here if needed -->
+        </div>
+    </div>
+
+    <script>
+        // Display the modal when the page is loaded
+        window.onload = function() {
+            var modal = document.getElementById('messageModal');
+            modal.style.display = "block";
+            setTimeout(function() {
+                modal.style.display = "none";
+      }, 3000);
+        };
+
+        // Close the modal when the user clicks anywhere outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById('messageModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+    {% endif %}
+
+</div>
+<!-- {% if message %}
+    <script>
+        alert("{{ message }}");
+    </script>
+    {% endif %} -->
+<script src="../static/js/code.jquery.com_jquery-3.7.0.min.js"></script>
+
+<!-- Include jQuery 3.6.0 from a local source -->
+<script src="../static/js/ajax.googleapis.com_ajax_libs_jquery_3.6.0_jquery.min.js"></script>
+<script src="../static/js/sample.js"></script>
+<!-- <script src="../static/js/time.js"></script> -->
+</body>
+</html>
+{% endblock %}

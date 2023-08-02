@@ -1,0 +1,550 @@
+
+
+/* * {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+
+} */
+
+body{
+	background-size: cover;
+}
+
+
+.wrapper .nav-header{
+width:fit-content ;   
+border: solid; 
+/* z-index: 9999; */
+}
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Style for the clock image */
+#clockImage {
+  width: 200px;
+  height: 200px;
+}
+.wrapper .nav-header ul li{
+    left: 1000px;
+    width: 20px;
+    border: none;
+    background-color: transparent;
+    border-radius: 0px;
+}
+.wrapper .nav-header ul li a{
+    position: relative;
+}
+
+.wrapper .nav-header ul li:hover,
+.wrapper .nav-header ul li a:hover{
+    background-color: transparent;
+    color: aliceblue;
+}
+
+.wrapper .profile img {
+	position: relative;
+	left: 5px;
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	transition: left 0.4s ease-in-out;
+  }
+
+  .Image-content {
+   margin-top: 50px;
+  }
+
+  .Image-content img{
+    height: 40px;
+  }
+  .wrapper .profile a label{
+    font-weight: bold;
+    color: white;
+  }
+  .wrapper .sidebar button{
+    position: relative;
+    bottom:30px;
+  }
+
+  .wrapper .sidebar button i:hover{
+  color: white;
+  }
+
+
+
+
+.wrapper .sidebar {
+    background-color: #0c7db1;
+    position: fixed;
+    top: 0;   
+    left: 0;
+    width: 230px;
+    height: 100%;
+    padding: 10px 0;
+    /* transition: all 0.5s ease; */
+  /* z-index: 1; */
+}
+
+
+.User-content{
+  color: #fff;
+  
+  /* background: #10101E; */
+  font-family: "Segoe UI", sans-serif;
+  width: 100%;
+  padding: 15px 10px;
+  border: 3px solid #2E94E3;
+  border-radius: 5px;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+  transition: 0.5s;
+  transition-property: background, box-shadow;
+}
+
+.User-content:hover{
+  background: #2E94E3;
+  box-shadow: 0 0 30px #2E94E3;
+}
+
+
+.wrapper .sidebar .User-content input{
+  border: none;
+  background-color: transparent;
+  position: relative;
+  margin: 0 6px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+ 
+}
+
+#user {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 5px 0;
+  width: 90%;
+  /* Additional styles for the uppercase text */
+  text-transform: uppercase;
+}
+
+
+.wrapper .sidebar .User-content label {
+  position: relative;
+  bottom: 10px;
+  font-weight: bold;
+  text-decoration: solid;
+  display: block;
+  color: rgb(10, 0, 147);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.wrapper .sidebar .User-content #CurrentLocation {
+  border: none;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  /* font-size: 16px; */
+  right: 10px;
+  margin-bottom: 10px;
+  padding: 5px 0;
+  width: 100%;
+}
+
+.wrapper .sidebar ul li{
+    padding: 5px;
+    margin: 5px;
+	  position: relative;
+    width: 220px;
+    border: solid;
+    border-radius: 20px;
+    border-width: 1px;
+    font-size: medium;
+    cursor: pointer;
+    background-color: #6baeccae;
+
+}
+
+.wrapper .sidebar ul li a{
+margin-left: 10px;
+
+}
+.wrapper .sidebar ul li a i{
+color: blue;
+  }
+.wrapper .sidebar ul li label{
+  color: black;
+    }
+    
+.wrapper .sidebar ul li label,a{
+    cursor: pointer;
+    }
+    
+
+.wrapper .sidebar ul li:hover,
+.wrapper .sidebar ul li.active:before {
+  background-color: #a2ecff;
+  display: block;
+}
+
+.wrapper .section{
+	width: calc(100% - 80px);
+	margin-left: 80px;
+	/* width: 90%; */
+	transition: all 0.5s ease;
+}
+
+
+.body-content{
+  margin-left: 230px;
+  width: auto;
+	position: relative;
+	background-color: rgba(242, 236, 236, 0.533);
+
+	border-style: thin;
+  }
+
+
+
+  .body-content .reference {
+    margin: 0px;
+    padding: 0px;
+	  display: flex;
+	  flex-direction: column;
+	  min-height: 100%;
+  }
+  @media (max-width: 100%) {
+    .reference {
+      width: auto;
+    }
+  }
+
+  footer {
+	color: blue;
+	position: relative;
+	margin-top: auto;
+	width: fit-content;
+	/* font-family:Georgia, 'Times New Roman', Times, serif; */
+	font-style: italic;
+	font-weight: bold;
+  }
+
+  footer img{
+	/* border: solid; */
+	border-radius: 20px;
+	position: relative;
+	height:  20px;
+	width:  20px;
+	top: 2px;
+	margin-left: 5px;
+  }
+
+
+
+  .sidebar.minimized {
+    width: 70px; /* Adjust the width as needed */
+  }
+  
+  .sidebar.minimized .profile img {
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+  }
+  
+  .sidebar.minimized label {
+    display: none;
+  }
+
+  .sidebar.minimized ul li {
+    width: calc(100% - 30%);
+    border: none;
+    background-color: transparent;
+  }
+  
+  .sidebar.minimized .User-content, .Image-content {
+    border: none;
+    background-color: transparent;
+  }
+  .sidebar.minimized .User-content input{
+   display: none;
+   background-color: transparent;
+  }
+
+  .sidebar.minimized .User-content label{
+    display: none;
+    background-color: transparent;
+   }
+ 
+   .sidebar.minimized .datetime{
+    display: none;
+    background-color: transparent;
+   }
+  .sidebar.minimized .Image-content img{
+    display: none;
+    background-color: transparent;
+   }
+
+  /* Styles for the content when the sidebar is minimized */
+  
+  body.minimized{
+    margin-left: -160px;
+  }
+
+  /* #bodyid.minimized{
+    margin-left: -160px;
+  } */
+
+  .topnav {
+    margin-left: 150px;
+    background-color: #0c7db1;
+    overflow: hidden;
+}
+.topnav .btn{
+  margin-left: 40px;
+}
+
+.topnav .btn a {
+    font-size: small;
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+
+
+/* Change the color on hover */
+.topnav a:hover {
+    background-color: #7de76a; /* Set the background color to your preference */
+}
+
+#togglesidebar {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 24px;
+
+}
+
+#togglesidebar i {
+  padding: 10px;
+}
+/* The rest of your existing CSS styles */
+
+/* Style for the dropdown menu */
+.dropdown {
+  font-size: 12px;
+  float: left;
+  overflow: hidden;
+}
+
+/* Style for the dropdown button */
+.dropbtn {
+  background-color:transparent; /* Set the background color to your preference */
+  color:  black;
+  padding: 14px 16px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the dropdown button on hover */
+.dropbtn:hover {
+  background-color: #a2ecff;  /* Set the background color to your preference */
+}
+
+/* Style for the dropdown content (hidden by default) */
+.dropdown-content {
+
+  display: none;
+  position: absolute;
+  background-color: #32afe9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  color: black !important;
+  font-size: 10px;
+}
+
+/* Style for the links inside the dropdown */
+.dropdown-content a {
+  margin: 5px;
+  background-color: #6baeccae;
+  border: 1px solid black;
+  border-radius: 20px;
+  color: black;
+  font-size: 10px !important;
+  float: none;
+  height: 30px;
+  /* padding: 12px 16px; */
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Style for the links inside the dropdown on hover */
+.dropdown-content a:hover {
+  background-color: #a2ecff;
+  color: black;
+}
+
+/* Show the dropdown content when the dropdown button is clicked */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Add style for the active link in the dropdown */
+.dropdown-content a.active {
+  background-color: #4CAF50; /* Set the background color to your preference */
+  color: rgb(0, 0, 0);
+}
+
+
+.tooltip-container {
+  position: relative;
+  /* Other styles for the container element */
+}
+
+/* Style the tooltip text */
+.tooltip-container::after {
+  content: attr(title); /* Get the tooltip text from the title attribute */
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #b4a6a6;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+/* Show the tooltip when hovering over the container */
+.tooltip-container:hover::after {
+  display: block;
+}
+
+
+#CurrentLocation {
+  font-size: 16px;
+  width: 100%; /* Set the desired width of the input */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* Show "..." when text overflows */
+}
+
+@media screen and (max-width: 100%) {
+  #CurrentLocation {
+    font-size: 16px !important;
+  }
+}
+@media screen and (min-width: 200px) {
+  #CurrentLocation {
+    font-size: 12px !important;
+  }
+}
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 20px;
+  border: 1px solid #888;
+  height: fit-content;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation for fade-out effect */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.modal-content input, select{
+ height: 40px;
+width: 300px;
+/* font-size: large; */
+font-weight: bold;
+border-radius: 5px;
+}
+
+
+#logoutModal button:hover{
+  background-color: #0fc92e;
+}
+
+#logoutModal button{
+
+  margin-top: 10px;
+  margin-left: 40px;
+  border-color: white;
+  width: 30%;
+  font-weight: bold;
+  background-color: #0915fbf3;
+  color: white;
+}
+#logoutModal button i{
+  color: white;
+  margin: 5px;
+}
+#logoutModal p{
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: red;
+ margin-left: 20px;
+
+}
+.site-content{
+  margin-left: 10px;
+  margin-top: 30px;
+  padding: 5px;
+}
+
+.site-content i:hover{
+font-size: 25px;
+color: rgb(24, 7, 139);
+}
