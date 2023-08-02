@@ -19,5 +19,4 @@ function generatePDF() {
     };
     xhr.send();
 }
-
-window.onload=generatePDF();
+window.onload=generatePDF;
