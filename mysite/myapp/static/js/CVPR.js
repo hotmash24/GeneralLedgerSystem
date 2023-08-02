@@ -8,8 +8,8 @@ function generatePDF() {
             var blob = new Blob([xhr.response], { type: 'application/pdf' });
             var link = document.createElement('a');
             link.href = window.URL.createObjectURL(blob);
-            // link.download = 'CVPR.pdf'; // Change the file name as needed
-            // link.click();
+            link.download = 'CVPR.pdf'; // Change the file name as needed
+            link.click();
             var pdfURL = window.URL.createObjectURL(blob);
             window.open(pdfURL, '_blank');
 
