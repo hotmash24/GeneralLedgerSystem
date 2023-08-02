@@ -66,6 +66,7 @@ color: black;
 .tab {
   display: inline-block;
   padding: 10px;
+  border-right: #4baee7;
   background-color: #ccc;
   cursor: pointer;
 }
