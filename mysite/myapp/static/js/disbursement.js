@@ -3732,11 +3732,13 @@ tableRows.forEach((row, index) => {
     checkNo = cellValues[3];
     SetDataFields2(cv_no,checkNo);
 
-    var textFields = document.querySelectorAll('button');
-    textFields.forEach(function (field) {
-      field.removeAttribute('disabled');
+    var edit = document.getElementById('EditTransaction');
+    edit.removeAttribute('disabled')
+
+    // edit.forEach(function (field) {
+    //   field.removeAttribute('disabled');
   
-    });
+    // });
 
     // $('#editButton').removeAttr('disabled');
     openTab(1);
@@ -3818,7 +3820,6 @@ function debitCredit2(){
       
       if (columnName === 'credit_amount') {
         const cellValue = parseFloat(cell.textContent.replace(',', ''));
-        console.log('1212',cellValue);
         if (cellValue > 0) {
         debit+=cellValue;
         }
@@ -3887,6 +3888,9 @@ $('#EditTransaction').on('click',function(){
 
   });
 
+  var SaveData = document.getElementById('SaveData');
+
+  SaveData.textContent = 'Update'
     UpdateCDB = true
     // var selectedOption = transactionTypeID.options[transactionTypeID.selectedIndex];
     // $('#remarks').value = selectedOption.text;

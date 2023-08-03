@@ -28,9 +28,9 @@ LOCATION_GLOBAL = []
 SECRET_KEY = 'django-insecure-%3rfp+sv&kco&!9@k*t4*jkz7dc&&=)f_%e%%f*r36j+nrd6i9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = False
 DEBUG = True
-
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['192.168.68.108']
 
 
 # Application definition

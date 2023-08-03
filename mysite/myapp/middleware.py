@@ -11,8 +11,6 @@ class IPValidationMiddleware:
         client_ip = request.META.get('REMOTE_ADDR', '')
         ALLOWED_IPS = [allowed_ip.ip_address for allowed_ip in AllowedIP.objects.all()]
         if client_ip not in ALLOWED_IPS:
-            # Redirect or display an error message
             return HttpResponse('Access denied: Your IP address is not allowed.')
-
         response = self.get_response(request)
         return response
