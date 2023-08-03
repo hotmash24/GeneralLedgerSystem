@@ -107,12 +107,13 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Set it to True if you want the sessio
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_mangkonommc1',
+        'NAME': 'db_mangkono',
         'USER': 'root',
-        'PASSWORD': 'lsi2010',
+        'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '3307',
+        'PORT': '3306',
     }
+    
 }
 
 

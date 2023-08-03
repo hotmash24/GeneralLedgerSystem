@@ -41,10 +41,10 @@ from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Image
 from io import BytesIO
-from docx import Document
-from docx.shared import Pt
-from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.shared import Inches
+# from docx import Document
+# from docx.shared import Pt
+# from docx.enum.text import WD_ALIGN_PARAGRAPH
+# from docx.shared import Inches
 import locale
 from .templatetags.AmountToWords import amount_to_words_with_cents
 locale.setlocale(locale.LC_ALL, 'en_US')
@@ -268,35 +268,35 @@ def CVPR_report_view1(request):
         return JsonResponse({'success': False, 'error': 'Invalid request method.'})
 
 
-def generate_word_report(request):
-    if request.method == 'POST':
-        doc = Document()
-        data = json.loads(request.body)
-        form_data = data.get('formData', {})
-        table_list = data.get('tableData', [])
-        # print('Table:', table_list)
-        # payee = form_data.get('payee')
-        # doc_typeank = form_data.get('doc_type')
-        # docref = form_data.get('docref')
-        # Voucherdate = form_data.get('Voucherdate')
-        # checkNo = form_data.get('checkNo')
-        # totalcredit = form_data.get('totalcredit')
-        # bantotaldebit = form_data.get('totaldebit')
-        # remark = form_data.get('remark')
-        # approved = form_data.get('approved')
-        # reviewed = form_data.get('reviewed')
-        # prepared = form_data.get('prepared')
+# def generate_word_report(request):
+#     if request.method == 'POST':
+#         doc = Document()
+#         data = json.loads(request.body)
+#         form_data = data.get('formData', {})
+#         table_list = data.get('tableData', [])
+#         # print('Table:', table_list)
+#         # payee = form_data.get('payee')
+#         # doc_typeank = form_data.get('doc_type')
+#         # docref = form_data.get('docref')
+#         # Voucherdate = form_data.get('Voucherdate')
+#         # checkNo = form_data.get('checkNo')
+#         # totalcredit = form_data.get('totalcredit')
+#         # bantotaldebit = form_data.get('totaldebit')
+#         # remark = form_data.get('remark')
+#         # approved = form_data.get('approved')
+#         # reviewed = form_data.get('reviewed')
+#         # prepared = form_data.get('prepared')
        
 
-        title = doc.add_heading('Sample Word Report', level=1)
-        title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        doc.add_paragraph("This is a sample Word report generated using Django and python-docx.")
-        doc.add_paragraph("You can add more paragraphs and formatting as needed.")
-        response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
-        response['Content-Disposition'] = 'attachment; filename="sample_report.docx"'
-        doc.save(response)
+#         title = doc.add_heading('Sample Word Report', level=1)
+#         title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+#         doc.add_paragraph("This is a sample Word report generated using Django and python-docx.")
+#         doc.add_paragraph("You can add more paragraphs and formatting as needed.")
+#         response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+#         response['Content-Disposition'] = 'attachment; filename="sample_report.docx"'
+#         doc.save(response)
 
-        return response
+#         return response
 
         
 

@@ -42,8 +42,8 @@ from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Image
 from io import BytesIO
-from docx import Document
-from docx.shared import Inches
+# from docx import Document
+# from docx.shared import Inches
 
 @login_required
 def home(request):

@@ -3,7 +3,7 @@ from .disbursementviews import (index,cv_list_view,modal,get_trans_type,payee,se
 acct_title,approved,slAccount,ApplicationOfPayment,getAcctiltleSetupforAplication,home,cashreceipts,xxx,SaveCashDisbursement,
 GetAccountCodeIndividually,GetSLCODE,cv_list_transaction,SetDaTaFields,DisplayEntry,LocationSelect,UpdateCashDisbursement,StatusOfTransaction)
 from .loginviews import login_view,logout_view
-from .reportviews import CV_list_report,CVPR_report_view,CVPR_report_view1,generate_word_report,CVPR_reportView
+from .reportviews import CV_list_report,CVPR_report_view,CVPR_report_view1,CVPR_reportView
 from django.contrib.auth import views as auth_views
 from .reportviews import generate_pdf
 
