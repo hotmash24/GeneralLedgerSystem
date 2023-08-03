@@ -398,7 +398,7 @@ def generate_pdf(request):
 
     # Generate PDF
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="CVPR.pdf"'
+    response['Content-Disposition'] = 'attachment; filen1ame="CVPR.pdf"'
     weasyprint.HTML(string=html).write_pdf(response)
 
     return response
