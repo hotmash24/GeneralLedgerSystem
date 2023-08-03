@@ -248,6 +248,7 @@ width: fit-content !important;
   
 </style>
 </head>
+
 <body>
     <div class="cvpr-container">
         <div class="Head-content">
@@ -284,12 +285,8 @@ width: fit-content !important;
                     </tr>
                 </thead>
                 <tbody id="DeatailsBody">
-                  <!-- <div class="container">
-                    <div class="vertical-line"></div>
-                  </div> -->
                   {% for entry in EntryDetails %}
-            <tr>
-
+              <tr>
                 <td id="">{{ entry.ul }} {{ entry.acct_title }} {{ entry.sl_name }}</td>
                 <td style="text-align: end;">{{ entry.debit_amount }}</td>
                 <td style="text-align: end;">{{ entry.credit_amount }}</td>
@@ -333,13 +330,10 @@ width: fit-content !important;
             </div>
             <input id="Remarks" type="text" name="Remarks" value="{{ Remarks }}" disabled style="width: 95%; white-space: pre-wrap;">
         </div>
- 
-
         <div class="pesos-content">
             <label>PESOS:</label>
             <label id="pesos" type="text" name="pesos"  disabled style="width: fit-content;">{{ AmountWords }}</label>
         </div>
-
         <div class="bank-content">
             <div class="col-md-4">
                 <div class="form-group">
