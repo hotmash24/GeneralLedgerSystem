@@ -3890,7 +3890,7 @@ $('#EditTransaction').on('click',function(){
 
   var SaveData = document.getElementById('SaveData');
 
-  SaveData.textContent = 'Update'
+  SaveData.innerHTML = '<i class="fas fa-check-circle"></i> Update';
     UpdateCDB = true
     // var selectedOption = transactionTypeID.options[transactionTypeID.selectedIndex];
     // $('#remarks').value = selectedOption.text;
